@@ -17,8 +17,9 @@ const router = express.Router();
 // ADD INVENTORY || POST
 router.post("/create-inventory", authMiddelware, createInventoryController);
 
-//GET ALL BLOOD RECORDS
+//GET ALL INVENTORY FOR CURRENT ORGANIZATION
 router.get("/get-inventory", authMiddelware, getInventoryController);
+
 //GET RECENT BLOOD RECORDS
 router.get(
   "/get-recent-inventory",
@@ -33,10 +34,10 @@ router.post(
   getInventoryHospitalController
 );
 
-//GET DONAR RECORDS
+//GET DONAR RECORDS in Organization;
 router.get("/get-donars", authMiddelware, getDonarsController);
 
-//GET HOSPITAL RECORDS
+//GET HOSPITAL RECORDS in Organization
 router.get("/get-hospitals", authMiddelware, getHospitalController);
 
 //GET orgnaisation RECORDS

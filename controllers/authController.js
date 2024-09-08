@@ -2,6 +2,7 @@ const userModel = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+//registration call back
 const registerController = async (req, res) => {
   try {
     const exisitingUser = await userModel.findOne({ email: req.body.email });
@@ -44,13 +45,15 @@ const loginController = async (req, res) => {
         message: "Invalid Credentials",
       });
     }
+
     //check role
     if (user.role !== req.body.role) {
       return res.status(500).send({
         success: false,
-        message: "role dosent match",
+        message: "Role dosent match",
       });
     }
+
     //compare password
     const comparePassword = await bcrypt.compare(
       req.body.password,
@@ -62,9 +65,12 @@ const loginController = async (req, res) => {
         message: "Invalid Credentials",
       });
     }
+
+    //create jsonweb token
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
+    
     return res.status(200).send({
       success: true,
       message: "Login Successfully",

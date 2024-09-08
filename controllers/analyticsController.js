@@ -10,7 +10,7 @@ const bloodGroupDetailsContoller = async (req, res) => {
     //get single blood group
     await Promise.all(
       bloodGroups.map(async (bloodGroup) => {
-        //COunt TOTAL IN
+        //COUNT TOTAL IN
         const totalIn = await inventoryModel.aggregate([
           {
             $match: {
@@ -26,7 +26,8 @@ const bloodGroupDetailsContoller = async (req, res) => {
             },
           },
         ]);
-        //COunt TOTAL OUT
+
+        //COUNT TOTAL OUT
         const totalOut = await inventoryModel.aggregate([
           {
             $match: {
@@ -70,6 +71,8 @@ const bloodGroupDetailsContoller = async (req, res) => {
     });
   }
 };
+
+//get blood details for donar/hospital;
 const orgDetails = async (req, res) => {
   console.log(req.body.userId);
   try {
