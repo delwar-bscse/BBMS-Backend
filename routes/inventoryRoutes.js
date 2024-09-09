@@ -21,18 +21,10 @@ router.post("/create-inventory", authMiddelware, createInventoryController);
 router.get("/get-inventory", authMiddelware, getInventoryController);
 
 //GET RECENT BLOOD RECORDS
-router.get(
-  "/get-recent-inventory",
-  authMiddelware,
-  getRecentInventoryController
-);
+router.get("/get-recent-inventory", authMiddelware, getRecentInventoryController);
 
 //GET HOSPITAL BLOOD RECORDS
-router.post(
-  "/get-inventory-hospital",
-  authMiddelware,
-  getInventoryHospitalController
-);
+router.post("/get-inventory-hospital", authMiddelware, getInventoryHospitalController);
 
 //GET DONAR RECORDS in Organization;
 router.get("/get-donars", authMiddelware, getDonarsController);
@@ -44,10 +36,6 @@ router.get("/get-hospitals", authMiddelware, getHospitalController);
 router.get("/get-orgnaisation", authMiddelware, getOrgnaisationController);
 
 //GET orgnaisation RECORDS
-router.get(
-  "/get-orgnaisation-for-hospital",
-  authMiddelware,
-  getOrgnaisationForHospitalController
-);
+router.get("/get-orgnaisation-for-hospital", authMiddelware, getOrgnaisationForHospitalController);
 
 module.exports = router;
