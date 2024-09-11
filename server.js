@@ -7,7 +7,7 @@ const connectDB = require("./config/db");
 dotenv.config();
 
 //mongodb connection
-connectDB();
+// connectDB();
 
 //rest object
 const app = express();
@@ -28,9 +28,10 @@ app.use("/api/v1/admin", require("./routes/adminRoutes"));
 const PORT = process.env.PORT || 8080;
 
 //listen
-app.listen(PORT, () => {
+app.listen(PORT, async() => {
   console.log(
     `Node Server Running In ${process.env.DEV_MODE} ModeOn Port ${process.env.PORT}`
       .bgBlue.white
   );
+  await connectDB();
 });
