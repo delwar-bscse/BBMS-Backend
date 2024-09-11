@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bloodGroupDetailsContoller = async (req, res) => {
   console.log(req.body.userId);
   try {
-    const bloodGroups = ["O+", "O-", "AB+", "AB-", "A+", "A-", "B+", "B-"];
+    const bloodGroups = ["O+", "O-", "AB+", "AB-", "A+", "A-", "B+", "B-",];
     const bloodGroupData = [];
     const organisation = new mongoose.Types.ObjectId(req.body.userId);
     //get single blood group
