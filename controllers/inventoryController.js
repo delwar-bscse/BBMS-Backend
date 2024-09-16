@@ -3,7 +3,7 @@ const inventoryModel = require("../models/inventoryModel");
 const userModel = require("../models/userModel");
 
 // CREATE INVENTORY
-const createInventoryController = async (req, res) => {
+const createInventoryController = async (req, res) => {দ
   try {
     const { email } = req.body;
     //validation
@@ -15,7 +15,7 @@ const createInventoryController = async (req, res) => {
       throw new Error("Not a donar account");
     }
     if (req?.body?.inventoryType === "out" && user?.role !== "hospital") {
-      throw new Error("Not a hospital");
+      throw new Error("Not a hospital account");
     }
 
     if (req.body.inventoryType == "out") {
@@ -266,6 +266,7 @@ const getOrgnaisationController = async (req, res) => {
     });
   }
 };
+
 // GET ORG for Hospital
 const getOrgnaisationForHospitalController = async (req, res) => {
   try {

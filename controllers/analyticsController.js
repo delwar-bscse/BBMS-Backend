@@ -1,5 +1,6 @@
 const inventoryModel = require("../models/inventoryModel");
 const mongoose = require("mongoose");
+
 //GET BLOOD DATA
 const bloodGroupDetailsContoller = async (req, res) => {
   console.log(req.body.userId);
