@@ -3,7 +3,8 @@ const inventoryModel = require("../models/inventoryModel");
 const userModel = require("../models/userModel");
 
 // CREATE INVENTORY
-const createInventoryController = async (req, res) => {দ
+const createInventoryController = async (req, res) => {
+  // console.log(req.body);
   try {
     const { email } = req.body;
     //validation
